@@ -1,6 +1,6 @@
-import { db } from 'astro:db';
+import seedCategoriasTransacciones from "./data&schema/CategoriaTransacciones/categoriasTransaccionesSeed";
 
 // https://astro.build/db/seed
-export default async function seed() {
-	// TODO
+export default async function () {
+  await seedCategoriasTransacciones();
 }

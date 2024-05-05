@@ -3,7 +3,6 @@ import Header from "@/components/Layout/Header.astro";
 import SidebarNav from "@/components/Layout/SidebarNav.astro";
 
 import pkg from "../../package.json" assert { type: "json" };
-import { ModeToggle } from "@/components/ModeToggle";
 interface Props {
   title: string;
 }
@@ -24,18 +23,18 @@ const { title } = Astro.props;
 
     <title>{title}</title>
   </head>
-  <body>
-    <Header />
+  <body class="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
     <SidebarNav />
+    {/*}<Header />
     <main class="p-4 sm:ml-64 dark:bg-gray-900">
       <div
         id="main-content"
         class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
       >
-        <slot />
-        {/*<FooterSidebar />*/}
+      {/*<FooterSidebar />}
       </div>
-    </main>
+    </main>*/}
+    <slot />
   </body>
 </html>
 

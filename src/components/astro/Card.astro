@@ -5,7 +5,6 @@ interface CardClassNames {
   header?: string;
   title?: string;
   description?: string;
-  content?: string;
 }
 
 interface Props {
@@ -20,17 +19,21 @@ const { className, title, description, classNames } = Astro.props;
 const headerClassNames = classNames?.header;
 const titleClassNames = classNames?.title;
 const descriptionClassNames = classNames?.description;
-const contentContainerClassNames = classNames?.content;
 ---
 
 {/*Card Container*/}
-<div class={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}>
+<div
+  class={cn(
+    "flex flex-col gap-6 rounded-lg border bg-card text-card-foreground shadow-sm p-6",
+    className
+  )}
+>
   {/*Card Header Container*/}
   {
     title && (
-      <div class={cn("flex flex-col space-y-1.5 ", headerClassNames)}>
+      <div class={cn("flex flex-col gap-1.5", headerClassNames)}>
         {/*Card Title*/}
-        <h3 class={cn("text-2xl font-semibold leading-none tracking-tight", titleClassNames)}>
+        <h3 class={cn("text-2xl font-semibold tracking-tight", titleClassNames)}>
           {title ?? "Título"}
         </h3>
 
@@ -42,8 +45,6 @@ const contentContainerClassNames = classNames?.content;
     )
   }
 
-  {/*Card Content Container*/}
-  <div class={cn(" pt-0", contentContainerClassNames)}>
-    <slot />
-  </div>
+  {/*Card Content*/}
+  <slot />
 </div>

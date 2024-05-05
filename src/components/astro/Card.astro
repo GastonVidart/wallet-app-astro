@@ -12,9 +12,10 @@ interface Props {
   title?: string;
   description?: string;
   classNames?: CardClassNames;
+  children: any;
 }
 
-const { className, title, description, classNames } = Astro.props;
+const { className, title, description, classNames,children } = Astro.props;
 
 const headerClassNames = classNames?.header;
 const titleClassNames = classNames?.title;
@@ -46,5 +47,6 @@ const descriptionClassNames = classNames?.description;
   }
 
   {/*Card Content*/}
+  {children}
   <slot />
 </div>

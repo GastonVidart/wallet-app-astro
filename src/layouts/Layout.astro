@@ -8,6 +8,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+/*TODO: agregar env con variables config */
+const APP_NAME = "Wallet App"
 ---
 
 <!doctype html>
@@ -21,20 +24,23 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content={pkg.author} />
 
-    <title>{title}</title>
+    <title>{APP_NAME} | {title}</title>
   </head>
   <body class="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-    <SidebarNav />
-    {/*}<Header />
-    <main class="p-4 sm:ml-64 dark:bg-gray-900">
-      <div
-        id="main-content"
-        class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14"
-      >
-      {/*<FooterSidebar />}
-      </div>
-    </main>*/}
-    <slot />
+    <SidebarNav appName={APP_NAME}/>
+    <div class="flex flex-col">
+      <Header />
+      <main class="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <div class="flex items-center">
+          <h1 class="text-lg font-semibold md:text-2xl">{title}</h1>
+        </div>
+        <div
+          class="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
+        >
+          <slot />
+        </div>
+      </main>
+    </div>
   </body>
 </html>
 

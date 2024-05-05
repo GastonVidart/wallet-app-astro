@@ -1,10 +1,14 @@
 ---
 import "@/styles/globals.css";
 
+import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
-import { Dashboard } from "@/layouts/Dashboard";
 ---
 
-<Layout title="Welcome to Astro.">
-  <Dashboard client:load />
+<Layout title="Inventory">
+  <div class="flex flex-col items-center gap-1 text-center">
+    <h3 class="text-2xl font-bold tracking-tight">You have no products</h3>
+    <p class="text-sm text-muted-foreground">You can start selling as soon as you add a product.</p>
+    <Button className="mt-4">Add Product</Button>
+  </div>
 </Layout>

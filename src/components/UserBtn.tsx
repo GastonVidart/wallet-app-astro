@@ -17,7 +17,7 @@ export default function UserBtn() {
       <DropdownMenuTrigger asChild>
         <Button variant="secondary" size="icon" className="rounded-full">
           <CircleUser className="h-5 w-5" />
-          <span className="sr-only">Toggle user menu</span>
+          <span className="sr-only">Abrir Menú de usuario</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

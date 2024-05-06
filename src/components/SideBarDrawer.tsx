@@ -1,23 +1,27 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Home, LineChart, Menu, Package, Package2, ShoppingCart, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Home, LineChart, Menu, Package, ShoppingCart, Users, Wallet } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
-export default function SideBarDrawer() {
+interface SideBarDrawerProps {
+  appName: string;
+}
+
+export default function SideBarDrawer({ appName }: Readonly<SideBarDrawerProps>) {
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" className="shrink-0 md:hidden">
           <Menu className="h-5 w-5" />
-          <span className="sr-only">Toggle navigation menu</span>
+          <span className="sr-only">Abrir Menú de Navegación</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="flex flex-col">
         <nav className="grid gap-2 text-lg font-medium">
           <a href="#" className="flex items-center gap-2 text-lg font-semibold">
-            <Package2 className="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
+            <Wallet className="h-6 w-6" />
+            <span>{appName}</span>
           </a>
           <a
             href="#"
@@ -62,9 +66,9 @@ export default function SideBarDrawer() {
           <Card>
             <CardHeader>
               <CardTitle>Upgrade to Pro</CardTitle>
-              <CardHeader>
+              <CardDescription>
                 Unlock all features and get unlimited access to our support team.
-              </CardHeader>
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Button size="sm" className="w-full">

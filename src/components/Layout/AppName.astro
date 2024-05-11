@@ -1,0 +1,9 @@
+---
+import { Wallet } from "lucide-react";
+
+const { appName } = Astro.props;
+---
+<div class="flex items-center gap-2 font-semibold">
+  <Wallet className="h-6 w-6" />
+  <span>{appName}</span>
+</div>

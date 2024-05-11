@@ -2,17 +2,17 @@
 import Card from "@/components/astro/Card.astro";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Home, LineChart, Package, Package2, ShoppingCart, Users, Wallet } from "lucide-react";
+import { Home, LineChart, Package, ShoppingCart, Users } from "lucide-react";
+import AppName from "./AppName.astro";
 
-const {appName} = Astro.props
+const { appName } = Astro.props;
 ---
 
 <aside id="sidebar" aria-label="Sidebar" class="hidden border-r bg-muted/40 md:block">
   <div class="flex h-full max-h-screen flex-col gap-2">
     <div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-      <a href="/" class="flex items-center gap-2 font-semibold">
-        <Wallet className="h-6 w-6" />
-        <span>{appName}</span>
+      <a href="/">
+        <AppName appName={appName} />
       </a>
     </div>
     <div class="flex-1">
